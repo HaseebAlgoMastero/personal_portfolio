@@ -1,25 +1,27 @@
-__  __  __
-\ \ \ \ \/
- \ \/\ \
-  \/  \/
+__    __
+|  |  |  |
+|__|  |__|
+|  |  |  |
+|  |  |  |
+
 
 The humans.txt file explains the team, technology,
-and graphic assets behind this site humanstxt.org.
+and graphic assets behind this site.
 
 _______________________________________________________________________________
 
-DESIGNER | デザイナー
+AI ENGINEER | エンジニア
 
-Hamish Williams
-Hand crafted design & web development
+Haseeb Iqbal
+Machine Learning & Artificial Intelligence
 
-Design tools:
-Figma
-Photoshop
-Blender
+AI Tools:
+TensorFlow
+PyTorch
+Scikit-learn
 
-twitter.com/hamishmw
-github.com/hamishmw
+github.com/HaseebAlgoMastero
+linkedin.com/in/haseeb-iqbal-21sb/
 
 _______________________________________________________________________________
 

@@ -14,15 +14,18 @@
   display: grid;
   grid-template-columns: repeat(6, [col] 1fr);
   align-items: center;
+  gap: var(--space2XL);
 
   @media (--mediaTablet) {
     padding: 0 80px;
     margin-top: 60px;
+    gap: var(--spaceXL);
   }
 
   @media (--mediaMobile) {
     padding: 0 20px;
     margin-top: 40px;
+    gap: var(--spaceL);
   }
 }
 

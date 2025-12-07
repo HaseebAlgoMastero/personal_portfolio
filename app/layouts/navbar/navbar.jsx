@@ -8,7 +8,6 @@ import { Link as RouterLink, useLocation } from '@remix-run/react';
 import { useEffect, useRef, useState } from 'react';
 import { cssProps, media, msToNum, numToMs } from '~/utils/style';
 import { NavToggle } from './nav-toggle';
-import { ThemeToggle } from './theme-toggle';
 import { navLinks, socialLinks } from './nav-data';
 import config from '~/config.json';
 import styles from './navbar.module.css';
@@ -17,6 +16,8 @@ export const Navbar = () => {
   const [current, setCurrent] = useState();
   const [menuOpen, setMenuOpen] = useState(false);
   const [target, setTarget] = useState();
+  const [showLogo, setShowLogo] = useState(true);
+  const [navSolid, setNavSolid] = useState(false);
   const { theme } = useTheme();
   const location = useLocation();
   const windowSize = useWindowSize();
@@ -139,8 +140,37 @@ export const Navbar = () => {
     if (menuOpen) setMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const threshold = 120;
+      setShowLogo(window.scrollY < threshold);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleNavBackground = () => {
+      const heroThreshold = Math.max(180, window.innerHeight * 0.35);
+      setNavSolid(window.scrollY > heroThreshold);
+    };
+
+    handleNavBackground();
+    window.addEventListener('scroll', handleNavBackground, { passive: true });
+    window.addEventListener('resize', handleNavBackground);
+
+    return () => {
+      window.removeEventListener('scroll', handleNavBackground);
+      window.removeEventListener('resize', handleNavBackground);
+    };
+  }, [location.pathname]);
+
   return (
-    <header className={styles.navbar} ref={headerRef}>
+    <header
+      className={`${styles.navbar} ${navSolid ? styles.navbarSolid : styles.navbarTransparent}`}
+      ref={headerRef}
+    >
       <RouterLink
         unstable_viewTransition
         prefetch="intent"
@@ -195,11 +225,9 @@ export const Navbar = () => {
               </RouterLink>
             ))}
             <NavbarIcons />
-            <ThemeToggle isMobile />
           </nav>
         )}
       </Transition>
-      {!isMobile && <ThemeToggle data-navbar-item />}
     </header>
   );
 };

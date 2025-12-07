@@ -1,3 +1,2 @@
-kv_namespaces = [
-  { id = "MY_KV", binding="MY_KV" }
-]
+name = "ihaseeb99999"  # use your actual project name from dashboard
+account_id = "82b82f1d920a1fa622c0902b20e83904"

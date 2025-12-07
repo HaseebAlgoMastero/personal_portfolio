@@ -1,38 +1,28 @@
-import config from '~/config.json';
-
 export const navLinks = [
   {
+    label: 'Education',
+    pathname: '/education',
+  },
+  {
+    label: 'Employment',
+    pathname: '/professional-experience',
+  },
+  {
     label: 'Projects',
-    pathname: '/#project-1',
+    pathname: '/projects',
   },
   {
-    label: 'Details',
-    pathname: '/#details',
-  },
-  {
-    label: 'Articles',
+    label: 'Research Publications',
     pathname: '/articles',
   },
   {
-    label: 'Contact',
-    pathname: '/contact',
+    label: 'Services',
+    pathname: '/services',
+  },
+  {
+    label: 'Contact us',
+    pathname: '/contact-us',
   },
 ];
 
-export const socialLinks = [
-  {
-    label: 'Bluesky',
-    url: `https://bsky.app/profile/${config.bluesky}`,
-    icon: 'bluesky',
-  },
-  {
-    label: 'Figma',
-    url: `https://www.figma.com/${config.figma}`,
-    icon: 'figma',
-  },
-  {
-    label: 'Github',
-    url: `https://github.com/${config.github}`,
-    icon: 'github',
-  },
-];
+export const socialLinks = [];

@@ -368,14 +368,22 @@
 
   .textRow {
     align-self: center;
-    text-align: left;
+    text-align: justify !important;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 
+    & p {
+      text-align: justify !important;
+    }
+
+    & .text {
+      text-align: justify !important;
+    }
+
     @media (--mediaMobile) {
-      text-align: left;
+      text-align: justify !important;
       align-items: flex-start;
     }
 
@@ -426,15 +434,29 @@
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space3XL);
+    gap: var(--space5XL) !important;
     margin: 0;
 
     & p {
       hyphens: auto;
+      text-align: justify !important;
+    }
+
+    & h1, & h2, & h3, & h4, & h5, & h6 {
+      text-align: justify !important;
+    }
+
+    & .text {
+      text-align: justify !important;
+    }
+
+    & * {
+      text-align: justify !important;
     }
 
     @media (--mediaTablet) {
       grid-template-columns: 1fr;
+      gap: var(--space3XL) !important;
     }
   }
 }

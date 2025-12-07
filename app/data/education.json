@@ -1,0 +1,17 @@
+[
+  {
+    "title": "M.S. Computer Science",
+    "institution": "Example University",
+    "score": "GPA 3.9 / 4.0"
+  },
+  {
+    "title": "B.S. Electrical & Computer Engineering",
+    "institution": "Sample Institute of Technology",
+    "score": "CGPA 3.7 / 4.0"
+  },
+  {
+    "title": "Deep Learning Specialization",
+    "institution": "Coursera / DeepLearning.AI",
+    "score": "Completed with Distinction"
+  }
+]

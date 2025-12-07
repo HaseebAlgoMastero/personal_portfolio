@@ -45,6 +45,7 @@
 
   .summary[data-alternate='true'] & {
     grid-template-columns: 1fr var(--textColumnWidth);
+    grid-column-gap: calc(var(--space3XL) * 4);
   }
 
   @media (--mediaLaptop) {
@@ -107,6 +108,18 @@
 
       top: 10%;
       left: 0;
+    }
+  }
+
+  .summary[data-alternate='true'] &[data-device='laptop'] {
+    --width: 180%;
+    left: 14%;
+    top: 6%;
+
+    @media (--mediaTablet) {
+      --width: 140%;
+      left: 0;
+      top: 10%;
     }
   }
 

@@ -4,16 +4,16 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useFetcher,
   useLoaderData,
   useNavigation,
+  useLocation,
   useRouteError,
 } from '@remix-run/react';
 import { createCookieSessionStorage, json } from '@remix-run/cloudflare';
 import { ThemeProvider, themeStyles } from '~/components/theme-provider';
 import GothamBook from '~/assets/fonts/gotham-book.woff2';
 import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
@@ -39,9 +39,10 @@ export const links = () => [
     crossOrigin: '',
   },
   { rel: 'manifest', href: '/manifest.json' },
-  { rel: 'icon', href: '/favicon.ico' },
+  { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
   { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-  { rel: 'shortcut_icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
+  { rel: 'icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
+  { rel: 'shortcut icon', href: '/shortcut.png', type: 'image/png', sizes: '64x64' },
   { rel: 'apple-touch-icon', href: '/icon-256.png', sizes: '256x256' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
@@ -79,19 +80,13 @@ export const loader = async ({ request, context }) => {
 
 export default function App() {
   let { canonicalUrl, theme } = useLoaderData();
-  const fetcher = useFetcher();
   const { state } = useNavigation();
+  const [showScrollHint, setShowScrollHint] = useState(true);
+  const location = useLocation();
 
-  if (fetcher.formData?.has('theme')) {
-    theme = fetcher.formData.get('theme');
-  }
+  theme = 'dark';
 
-  function toggleTheme(newTheme) {
-    fetcher.submit(
-      { theme: newTheme ? newTheme : theme === 'dark' ? 'light' : 'dark' },
-      { action: '/api/set-theme', method: 'post' }
-    );
-  }
+  function toggleTheme() {}
 
   useEffect(() => {
     console.info(
@@ -100,29 +95,51 @@ export default function App() {
     );
   }, []);
 
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setShowScrollHint(false);
+      return;
+    }
+
+    const handleScroll = () => {
+      setShowScrollHint(window.scrollY < 120);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Theme color doesn't support oklch so I'm hard coding these hexes for now */}
-        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} />
-        <meta
-          name="color-scheme"
-          content={theme === 'light' ? 'light dark' : 'dark light'}
-        />
+        <meta name="theme-color" content="#111" />
+        <meta name="color-scheme" content="dark" />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
         <link rel="canonical" href={canonicalUrl} />
       </head>
-      <body data-theme={theme}>
+      <body data-theme="dark">
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
           <Progress />
           <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
             Skip to main content
           </VisuallyHidden>
           <Navbar />
+          {location.pathname !== '/' && location.pathname !== '/contact-us' && showScrollHint && (
+            <div className={styles.scrollIndicators} aria-hidden="true">
+              <div className={styles.scrollIndicator} />
+              <div className={styles.scrollIndicatorMobile}>
+                <svg aria-hidden stroke="currentColor" width="43" height="15" viewBox="0 0 43 15">
+                  <path d="M1 1l20.5 12L42 1" strokeWidth="2" fill="none" />
+                </svg>
+              </div>
+            </div>
+          )}
           <main
             id="main-content"
             className={styles.container}
@@ -148,7 +165,7 @@ export function ErrorBoundary() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#111" />
-        <meta name="color-scheme" content="dark light" />
+        <meta name="color-scheme" content="dark" />
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />

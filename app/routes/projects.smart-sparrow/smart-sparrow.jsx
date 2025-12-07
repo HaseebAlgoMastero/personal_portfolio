@@ -16,7 +16,7 @@ import imageSprDesignSystemDark from '~/assets/spr-design-system-dark.png';
 import imageSprDesignSystemLightLarge from '~/assets/spr-design-system-light-large.png';
 import imageSprDesignSystemLightPlaceholder from '~/assets/spr-design-system-light-placeholder.png';
 import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
-import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
+import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark.jpg';
 import imageSprLessonBuilderDarkPlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
 import imageSprLessonBuilderDark from '~/assets/spr-lesson-builder-dark.jpg';
 import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
@@ -70,14 +70,14 @@ const EarthSection = lazy(() =>
   import('./earth').then(module => ({ default: module.EarthSection }))
 );
 
-const title = 'Designing the future of education';
+const title = 'InfiSearch - Scientific Research Assistant';
 const description =
-  'I worked as the design lead on a major iteration of Smart Sparrow’s product. We took the platform in a bold new direction, focusing on becoming the best tool for learning designers.';
+  'An intelligent research chatbot powered by OpenAI Agentic SDK and GPT-4. This conversational AI system provides instant access to scientific research through natural language interactions, automatically generating comprehensive reports and delivering them directly to your email.';
 const roles = [
-  'Art Direction',
-  'UX and UI Design',
-  'Front End Development',
-  'Motion Design',
+  'Chatbot Development',
+  'Conversational AI',
+  'OpenAI Integration',
+  'Research Automation',
 ];
 
 export const meta = () => {
@@ -105,7 +105,7 @@ export const SmartSparrow = () => {
         <ProjectHeader
           title={title}
           description={description}
-          url="https://www.smartsparrow.com/"
+          url="https://github.com/HaseebIqbal/Infisearch"
           roles={roles}
         />
         <ProjectSection padding="top">
@@ -126,21 +126,20 @@ export const SmartSparrow = () => {
                   : imageSprLessonBuilderLightPlaceholder
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
-              alt="The aero lesson builder app dragging an audio component into a screen about plant cells."
+              alt="InfiSearch AI Research Assistant Dashboard showing multi-agent workflow"
             />
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>
           <ProjectTextRow>
-            <ProjectSectionHeading>The problem</ProjectSectionHeading>
+            <ProjectSectionHeading>Project Overview</ProjectSectionHeading>
             <ProjectSectionText>
-              In 2017, Smart Sparrow began a project to build an entirely new platform to
-              from the ground up to serve as the most powerful tool for educators to
-              create online learning experiences. The old platform was built in Flash, and
-              there were a number of user experience problems to solve in the process of
-              moving the platform to Javascript. The primary goals for the project were
-              reducing barriers to collaboration, and making the platform both easier for
-              new users, but with plenty of room to scale for advanced users.
+              InfiSearch is an advanced research chatbot that revolutionizes how users interact with scientific 
+              information. Users simply ask questions in natural language, and the chatbot intelligently processes 
+              their queries to provide comprehensive research insights. Built with OpenAI's Agentic SDK and GPT-4, 
+              this conversational AI system combines multiple specialized agents to deliver accurate, well-researched 
+              responses. The chatbot automatically generates detailed reports based on your questions and sends them 
+              directly to your email, making scientific research accessible through simple conversation.
             </ProjectSectionText>
           </ProjectTextRow>
         </ProjectSection>
@@ -160,7 +159,7 @@ export const SmartSparrow = () => {
                   ? imageSprComponentsDarkPlaceholder
                   : imageSprComponentsLightPlaceholder
               }
-              alt={`A set of ${theme} themed components for the aero design system`}
+              alt={`InfiSearch multi-agent architecture diagram showing ${theme} theme`}
               sizes="100vw"
             />
             <ProjectTextRow>
@@ -173,13 +172,15 @@ export const SmartSparrow = () => {
               </SegmentedControl>
             </ProjectTextRow>
             <ProjectTextRow>
-              <ProjectSectionHeading>The aero design system</ProjectSectionHeading>
+              <ProjectSectionHeading>Multi-Agent Architecture</ProjectSectionHeading>
               <ProjectSectionText>
-                To streamline the design process across designers and engineers for such a
-                large project, it was important to lay the foundations with a strong,
-                flexible design system that could evolve during the product’s development
-                cycle. This would inform both the aesthetics and user experience across
-                the product itself as well as the website and marketing material.
+                InfiSearch operates as an intelligent chatbot with specialized AI agents working behind the scenes:
+                <strong>Strategy Agent</strong> understands your research questions and plans the best approach, 
+                <strong>Search Agent</strong> finds relevant information from academic databases, 
+                <strong>Writer Agent</strong> compiles the findings into comprehensive reports, 
+                and <strong>Email Agent</strong> automatically delivers the final research report to your email. 
+                This chatbot architecture ensures users get instant, accurate responses to their research questions 
+                while maintaining the depth and quality of traditional research methods.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>

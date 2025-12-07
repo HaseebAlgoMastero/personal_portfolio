@@ -1,6 +1,6 @@
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { useReducedMotion, useSpring } from 'framer-motion';
-import { memo, useEffect, useRef } from 'react';
+import { memo, useEffect, useMemo, useRef } from 'react';
 import { delay } from '~/utils/delay';
 import { classes } from '~/utils/style';
 import styles from './decoder-text.module.css';
@@ -45,11 +45,25 @@ function shuffle(content, output, position) {
 }
 
 export const DecoderText = memo(
-  ({ text, start = true, delay: startDelay = 0, className, ...rest }) => {
+  ({
+    text,
+    start = true,
+    delay: startDelay = 0,
+    springConfig,
+    className,
+    ...rest
+  }) => {
     const output = useRef([{ type: CharType.Glyph, value: '' }]);
     const container = useRef();
     const reduceMotion = useReducedMotion();
-    const decoderSpring = useSpring(0, { stiffness: 8, damping: 5 });
+    const springOptions = useMemo(
+      () => ({
+        stiffness: springConfig?.stiffness ?? 8,
+        damping: springConfig?.damping ?? 5,
+      }),
+      [springConfig?.damping, springConfig?.stiffness]
+    );
+    const decoderSpring = useSpring(0, springOptions);
 
     useEffect(() => {
       const containerInstance = container.current;

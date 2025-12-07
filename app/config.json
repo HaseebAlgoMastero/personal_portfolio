@@ -1,11 +1,11 @@
 {
-  "name": "Hamish Williams",
-  "role": "Designer",
-  "disciplines": ["Developer", "Prototyper", "Animator", "Illustrator", "Modder"],
-  "url": "https://hamishw.com",
-  "bluesky": "hamishw.com",
-  "figma": "@Hamish",
-  "github": "HamishMW",
-  "repo": "https://github.com/HamishMW/portfolio",
-  "ascii": "__  __  __\n\u005C \u005C \u005C \u005C \u005C\u2215\n \u005C \u005C\u2215\u005C \u005C\n  \u005C\u2215  \u005C\u2215\n"
+  "name": "Haseeb Iqbal",
+  "role": "AI Engineer",
+  "disciplines": ["Generative AI","Agentic AI","LLMs","Machine Learning", "Deep Learning"],
+  "url": "https://haseebiqbal.com",
+  "email": "engr.haseeb.iqbal@gmail.com",
+  "linkedin": "haseeb-iqbal-21sb",
+  "github": "HaseebAlgoMastero",
+  "repo": "https://github.com/HaseebAlgoMastero",
+  "ascii": "__  __  __\n|  |  |  |\n|__|  |__|\n|  |  |  |\n|  |  |  |\n"
 }

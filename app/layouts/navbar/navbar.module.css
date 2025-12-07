@@ -14,6 +14,12 @@
     bottom: var(--spaceOuter);
     z-index: var(--zIndex4);
     isolation: isolate;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: background var(--durationM) var(--bezierFastoutSlowin),
+      box-shadow var(--durationM) var(--bezierFastoutSlowin),
+      border-color var(--durationM) var(--bezierFastoutSlowin),
+      backdrop-filter var(--durationM) var(--bezierFastoutSlowin);
 
     @media (--mediaMobile) {
       --headerNavFontSize: calc((22 / 16) * 1rem);
@@ -35,6 +41,20 @@
     }
   }
 
+  .navbarTransparent {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .navbarSolid {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
   .nav {
     display: flex;
     flex-direction: column;
@@ -54,48 +74,71 @@
     flex-direction: row-reverse;
     position: relative;
     writing-mode: vertical-lr;
+    gap: 6px;
   }
 
   .navLink {
-    padding: var(--spaceM);
+    padding: 8px;
     color: color-mix(in lab, var(--text) 80%, transparent);
     font-weight: var(--fontWeightMedium);
     font-size: var(--headerNavFontSize);
     text-decoration: none;
     position: relative;
-    transition: color var(--durationS) ease 0.1s;
+    transition: all var(--durationM) var(--bezierFastoutSlowin);
     line-height: 1;
     display: inline-flex;
     align-items: center;
+    border-radius: 8px;
+    overflow: visible;
 
     &:hover,
     &:active,
     &[aria-current='page'] {
       color: var(--textBody);
+      transform: translateY(-2px);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(100% + var(--spaceM));
+      height: calc(100% + var(--spaceS));
+      background: color-mix(in lab, var(--accent) 15%, transparent);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all var(--durationM) var(--bezierFastoutSlowin);
+      z-index: -1;
+      border-radius: 8px;
+      backdrop-filter: blur(8px);
     }
 
     &::after {
       content: '';
       position: absolute;
-      inset-inline-start: var(--spaceS);
-      inset-inline-end: var(--spaceS);
-      block-size: 4px;
+      bottom: -2px;
+      left: 50%;
+      width: calc(100% + var(--spaceL));
+      height: 3px;
       background: var(--accent);
-      transform: scaleY(0) translateZ(0);
-      transform-origin: bottom;
+      transform: translateX(-50%) scaleX(0);
+      transition: all var(--durationM) var(--bezierFastoutSlowin);
+      z-index: -1;
+      border-radius: 2px;
     }
 
-    @media (--mediaUseMotion) {
-      &::after {
-        transition: transform var(--durationM) var(--bezierFastoutSlowin);
-      }
+    &:hover::before,
+    &:active::before,
+    &[aria-current='page']::before {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.05);
     }
 
     &:hover::after,
     &:active::after,
     &[aria-current='page']::after {
-      transform: scaleY(1) translateZ(0);
-      transform-origin: top;
+      transform: translateX(-50%) scaleX(1);
     }
   }
 
@@ -180,14 +223,15 @@
     text-align: center;
     text-decoration: none;
     color: var(--textBody);
-    padding: var(--spaceL);
+    padding: var(--spaceM);
     opacity: 0;
-    transition-property: opacity;
-    transition-duration: var(--durationS);
-    transition-timing-function: var(--bezierFastoutSlowin);
+    transition: all var(--durationM) var(--bezierFastoutSlowin);
     transition-delay: var(--transitionDelay);
     position: relative;
     top: calc(var(--spaceM) * -1);
+    margin: var(--spaceS) 0;
+    overflow: visible;
+    font-weight: var(--fontWeightMedium);
 
     @media (--mediaUseMotion) {
       transition-property: transform, opacity;
@@ -202,29 +246,53 @@
       --headerNavFontSize: calc((18 / 16) * 1rem);
     }
 
-    &::after {
+    &:hover,
+    &:active,
+    &:focus {
+      transform: translateY(-3px);
+    }
+
+    &::before {
       content: '';
       position: absolute;
       top: 50%;
-      right: var(--space3XL);
-      left: var(--space3XL);
-      height: 4px;
-      background: var(--accent);
-      transform: scaleX(0) translateY(-1px);
-      transform-origin: right;
+      left: 50%;
+      width: calc(100% - var(--space2XL));
+      height: calc(100% - var(--spaceL));
+      background: color-mix(in lab, var(--accent) 20%, transparent);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: all var(--durationM) var(--bezierFastoutSlowin);
+      z-index: -1;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
     }
 
-    @media (--mediaUseMotion) {
-      &::after {
-        transition: transform var(--durationM) var(--bezierFastoutSlowin);
-      }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: calc(100% - var(--space3XL));
+      height: 3px;
+      background: var(--accent);
+      transform: translateX(-50%) scaleX(0);
+      transition: all var(--durationM) var(--bezierFastoutSlowin);
+      z-index: -1;
+      border-radius: 2px;
+    }
+
+    &:hover::before,
+    &:active::before,
+    &:focus::before {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
     }
 
     &:hover::after,
     &:active::after,
     &:focus::after {
-      transform: scaleX(1) translateY(-1px);
-      transform-origin: left;
+      transform: translateX(-50%) scaleX(1);
     }
 
     &[data-visible='true'] {

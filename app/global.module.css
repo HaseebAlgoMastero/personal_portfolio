@@ -24,10 +24,19 @@
     width: 100vw;
     overflow-x: hidden;
     opacity: 1;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &:focus {
       outline: none;
     }
+  }
+
+  :global(*::-webkit-scrollbar) {
+    display: none;
   }
 
   :global(:where(code, pre)) {
@@ -37,6 +46,14 @@
   :global(::selection) {
     background: var(--accent);
     color: var(--black);
+  }
+
+  :global(body) {
+    scrollbar-width: none;
+  }
+
+  :global(body::-webkit-scrollbar) {
+    display: none;
   }
 
   :global(:focus) {
@@ -77,6 +94,63 @@
     100% {
       transform: scale3d(0, 1, 1);
       transform-origin: right;
+    }
+  }
+}
+
+@layer components {
+  :global(.responsive-hero) {
+    --hero-height: min(100vh, 820px);
+    --hero-min-height: 540px;
+    --hero-title-size: clamp(3rem, 7vw, 5.2rem);
+    --hero-title-spacing: clamp(0.18em, 2.4vw, 0.28em);
+    --hero-title-line-height: 1.05;
+    --hero-inner-gap: 12px;
+    --hero-content-align: center;
+    --hero-text-align: center;
+    --hero-content-padding: clamp(18px, 6vw, 44px);
+    --hero-content-max-width: min(1120px, 100%);
+  }
+
+  @media (max-width: 580px), (max-height: 526px) {
+    :global(.responsive-hero) {
+      --hero-height: auto;
+      --hero-min-height: min(420px, 90vh);
+      --hero-title-size: clamp(2.2rem, 8vw, 3.2rem);
+      --hero-title-spacing: clamp(0.12em, 1.8vw, 0.2em);
+      --hero-title-line-height: 1.1;
+      --hero-inner-gap: 10px;
+      --hero-content-align: flex-start;
+      --hero-text-align: left;
+      --hero-content-padding: clamp(14px, 7vw, 24px);
+    }
+  }
+
+  @media (max-width: 580px), (max-height: 526px) {
+    :global(.experience-hero) {
+      --hero-height: auto;
+      --hero-min-height: min(420px, 90vh);
+      --hero-title-size: clamp(1.2rem, 8vw, 3.2rem);
+      --hero-title-spacing: clamp(0.12em, 1.8vw, 0.2em);
+      --hero-title-line-height: 1.1;
+      --hero-inner-gap: 10px;
+      --hero-content-align: flex-start;
+      --hero-text-align: left;
+      --hero-content-padding: clamp(12px, 7vw, 13px);
+    }
+  }
+
+  @media (max-width: 580px), (max-height: 526px) {
+    :global(.research-hero) {
+      --hero-height: auto;
+      --hero-min-height: min(420px, 90vh);
+      --hero-title-size: clamp(1.2rem, 8vw, 3.2rem);
+      --hero-title-spacing: clamp(0.12em, 1.8vw, 0.2em);
+      --hero-title-line-height: 1.1;
+      --hero-inner-gap: 10px;
+      --hero-content-align: flex-start;
+      --hero-text-align: left;
+      --hero-content-padding: clamp(14px, 7vw, 24px);
     }
   }
 }
