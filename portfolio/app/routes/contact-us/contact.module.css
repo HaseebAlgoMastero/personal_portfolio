@@ -1,0 +1,237 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: clamp(12px, 6vh, 40px) clamp(12px, 5vw, 64px);
+  background: radial-gradient(circle at 12% 10%, rgb(var(--accent) / 0.12), transparent 40%),
+    radial-gradient(circle at 88% 8%, rgb(var(--accent) / 0.08), transparent 32%),
+    linear-gradient(180deg, rgb(var(--rgbBackground)), rgb(var(--rgbBackground) / 0.9));
+  overflow: hidden;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 100%);
+  background: linear-gradient(160deg, rgb(var(--rgbBackground)), rgb(var(--rgbBackground) / 0.7));
+  border: 1px solid rgb(var(--rgbText) / 0.08);
+  border-radius: 22px;
+  box-shadow: 0 28px 80px -48px rgb(var(--rgbText) / 0.6), 0 0 0 1px rgb(var(--accent) / 0.04);
+  padding: clamp(14px, 4vw, 28px) clamp(14px, 5vw, 32px);
+  display: grid;
+  gap: clamp(10px, 2vh, 16px);
+  color: rgb(var(--rgbText));
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.monogramWrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, color-mix(in lab, var(--accent) 35%, transparent), rgb(var(--rgbBackground)));
+  border: 1px solid color-mix(in lab, var(--accent) 45%, transparent);
+  box-shadow: inset 0 0 0 1px rgb(var(--rgbBackground)), 0 12px 26px -18px var(--accent);
+}
+
+.monogram {
+  width: 46px;
+  height: 28px;
+  fill: rgb(var(--rgbText));
+}
+
+.titleBlock {
+  display: grid;
+  gap: 6px;
+  text-align: center;
+  padding-left: 20px;
+}
+
+.kicker {
+  margin: 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: color-mix(in lab, rgb(var(--rgbText)) 70%, transparent);
+}
+
+.kickerBottom {
+  text-align: left;
+  justify-self: flex-start;
+  margin-top: 12px;
+}
+
+.paths {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paths svg {
+  width: 100%;
+  height: 100%;
+  color: rgb(var(--rgbText));
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 4.4vw, 2.6rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: rgb(var(--rgbText));
+}
+
+.lead {
+  margin: 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: color-mix(in lab, rgb(var(--rgbText)) 82%, transparent);
+  max-width: 1100px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: white;
+}
+
+.navGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 20px;
+  justify-items: center;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.navLink {
+  display: inline-block;
+  padding: 8px 12px;
+  font-weight: 700;
+  color: color-mix(in lab, var(--accent) 80%, rgb(var(--rgbText)) 30%);
+  text-decoration: none;
+  transition: color var(--durationS) ease, transform var(--durationS) ease;
+}
+
+.navLink:hover {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.socialRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding-top: 50px;
+}
+
+.socialButton {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in lab, var(--accent) 60%, transparent);
+  background: linear-gradient(135deg, rgb(var(--rgbBackground)), rgb(var(--rgbBackground) / 0.8));
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  transition: transform var(--durationS) ease, box-shadow var(--durationS) ease, border-color var(--durationS) ease;
+}
+
+.socialButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -26px var(--accent);
+  border-color: var(--accent);
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.socialLogo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgb(var(--rgbBackground) / 0.4));
+}
+
+.socialLogoLarge {
+  width: 36px;
+  height: 36px;
+}
+
+.socialText {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  color: rgb(var(--rgbText));
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (--mediaTablet) {
+  .card {
+    padding: clamp(12px, 5vw, 24px);
+  }
+
+  .navGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .socialButton {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (--mediaMobile) {
+  .page {
+    padding: clamp(10px, 6vh, 28px) clamp(10px, 6vw, 22px);
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .socialRow {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 516px) {
+  .lead {
+    display: none;
+  }
+}
