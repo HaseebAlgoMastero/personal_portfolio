@@ -33,15 +33,15 @@ const experiences = [
       'Developed Agentic AI systems using OpenAI Agentic SDK, CrewAI, LangGraph, and MCP server integration',
       'Collaborated in cross-functional teams with strong problem-solving, communication, and client handling skills',
     ],
-    tags: ['AI-IoT', 'XIAO_ESp32S3', 'Python', 'Generative AI', 'Agentic AI', 'Raspberry Pi Pico 2', 'eNose'],
+    tags: ['Python', 'Generative AI', 'Agentic AI', 'Raspberry Pi Pico 2', 'eNose'],
   },
   {
-    range: 'Sep 2024 - May 2025',
+    range: 'August 2024 - May 2025',
     title: 'AI Engineer (Remote)',
-    company: 'Data Digger',
+    company: 'FabTechsol',
     companyLink: 'https://fabtechsol.com/',
     brandColor: '#25d4ff',
-    logo: '/static/logos/data.png',
+    logo: '/static/logos/data.jpg',
     intro:
       'Built and deployed generative AI and ML services for data-focused workflows, fully remote from Lahore, Pakistan.',
     bullets: [
