@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Example Paper Title",
+    "authors": "Your Name, Coauthor Name",
+    "venue": "Conference/Journal Name",
+    "year": 2025,
+    "abstract": "Brief one-sentence summary of the work.",
+    "links": {
+      "pdf": "https://example.com/paper.pdf",
+      "doi": "https://doi.org/xx.xxxx/xxxxx",
+      "code": "https://github.com/your/repo"
+    }
+  }
+]
+
+

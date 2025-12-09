@@ -1,8 +1,8 @@
 {
-  "name": "newportfolio",
-  "homepage": "https://github.com/HaseebAlgoMastero/New_portfolio",
+  "name": "personalportfolio",
+  "homepage": "https://github.com/HaseebAlgoMastero/personal_portfolio",
   "description": "Portfolio site for Haseeb Iqbal",
-  "repository": "https://github.com/HaseebAlgoMastero/New_portfolio",
+  "repository": "https://github.com/HaseebAlgoMastero/personal_portfolio",
   "author": "Haseeb Iqbal",
   "sideEffects": false,
   "type": "module",
@@ -10,10 +10,10 @@
     "dev": "node ./scripts/dev.cjs && npx remix vite:dev",
     "build": "npx remix vite:build",
     "postinstall": "node ./scripts/draco.cjs",
-    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name newportfolio",
+    "deploy": "npm run build && wrangler pages deploy ./build/client --project-name personalportfolio",
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
-    "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name newportfolio --branch main"
+    "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name personalportfolio --branch main"
   },
 
   

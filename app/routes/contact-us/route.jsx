@@ -29,9 +29,6 @@ const socialLinks = [
   { label: 'Phone', href: 'tel:+92167799400', logo: '/static/logos/phone.png' },
   { label: 'Instagram', href: 'https://www.instagram.com/', logo: '/static/logos/Instagram-Logosu.png' },
   { label: 'Facebook', href: 'https://www.facebook.com/', logo: '/static/logos/Facebook_Logo_(2019).png' },
-  { label: 'Fiver', href: 'https://www.facebook.com/', logo: '/static/logos/fiver-removebg-preview.png' },
-  { label: 'Upwork', href: 'https://www.facebook.com/', logo: '/static/logos/upwork-removebg-preview.png' },
-
 ];
 
 const FloatingPaths = ({ position }) => {

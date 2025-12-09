@@ -1,0 +1,60 @@
+.navBar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  z-index: 100;
+  padding: 0 8px;
+}
+
+@media (min-width: 768px) {
+  .navBar {
+    top: 24px;
+    bottom: auto;
+  }
+}
+
+.bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background: color-mix(in lab, rgb(var(--rgbBackground)) 80%, transparent);
+  border: 1px solid rgb(var(--rgbText) / 0.16);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 48px -26px rgb(var(--rgbText) / 0.45);
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(var(--rgbText));
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.active {
+  color: #000000;
+}
+
+.pill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, var(--accent), color-mix(in lab, var(--accent) 50%, transparent));
+  border-radius: 999px;
+  z-index: -1;
+  box-shadow: 0 12px 26px -20px var(--accent);
+}

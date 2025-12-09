@@ -1,0 +1,41 @@
+__    __
+|  |  |  |
+|__|  |__|
+|  |  |  |
+|  |  |  |
+
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site.
+
+_______________________________________________________________________________
+
+AI ENGINEER | エンジニア
+
+Haseeb Iqbal
+Machine Learning & Artificial Intelligence
+
+AI Tools:
+TensorFlow
+PyTorch
+Scikit-learn
+
+github.com/HaseebAlgoMastero
+linkedin.com/in/haseeb-iqbal-21sb/
+
+_______________________________________________________________________________
+
+TECHNOLOGY | テクノロジー
+
+React
+Remix
+Three.js
+Framer Motion
+
+_______________________________________________________________________________
+
+FONTS | フォント
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8
